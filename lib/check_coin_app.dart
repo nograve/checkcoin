@@ -7,9 +7,18 @@ class CheckCoinApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'CheckCoin App',
-      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color.fromRGBO(
+          80,
+          60,
+          197,
+          1.0,
+        ),
+      ),
+      home: const HomePage(),
     );
   }
 }
