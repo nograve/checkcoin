@@ -19,7 +19,7 @@ Future<void> loadConfig() async {
   Map configData = jsonDecode(configContent);
   GetIt.instance.registerSingleton<AppConfig>(
     AppConfig(
-      COIN_API_BASE_URL: configData['COIN_API_BASE_URL'],
+      coinApiBaseUrl: configData['COIN_API_BASE_URL'],
     ),
   );
 }
