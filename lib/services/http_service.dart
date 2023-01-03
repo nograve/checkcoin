@@ -9,5 +9,9 @@ class HTTPService {
   AppConfig? appConfig;
   String? baseUrl;
 
-  HTTPService() {}
+  HTTPService() {
+    appConfig = GetIt.instance.get<AppConfig>();
+    baseUrl = appConfig!.COIN_API_BASE_URL;
+    print(baseUrl);
+  }
 }
