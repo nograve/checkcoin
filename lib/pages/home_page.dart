@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:checkcoin/services/http_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,6 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  HTTPService? _http;
+
+  @override
+  void initState() {
+    super.initState();
+    _http = GetIt.instance.get<HTTPService>();
+  }
+
   Widget _selectedCoinDropdown() {
     List<String> coins = ['bitcoin'];
     List<DropdownMenuItem<String>> items = coins
@@ -39,6 +51,29 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _dataWidgets() {
+    return FutureBuilder(
+      future: _http!.get('/coins/bitcoin'),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          Map data = jsonDecode(
+            snapshot.data.toString(),
+          );
+          num usdPrice = data['market_data']['current_price']['usd'];
+          return Text(
+            usdPrice.toString(),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+          );
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -52,6 +87,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _selectedCoinDropdown(),
+              _dataWidgets(),
             ],
           ),
         ),
