@@ -12,7 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  HTTPService? _http;
+  late HTTPService _http;
+  late double _deviceHeight;
+  late double _deviceWidth;
 
   @override
   void initState() {
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _dataWidgets() {
     return FutureBuilder(
-      future: _http!.get('/coins/bitcoin'),
+      future: _http.get('/coins/bitcoin'),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           Map data = jsonDecode(
@@ -113,8 +115,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height;
-    final deviceWidth = MediaQuery.of(context).size.width;
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Center(
