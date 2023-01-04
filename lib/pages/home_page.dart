@@ -73,6 +73,9 @@ class _HomePageState extends State<HomePage> {
               ),
               _currentPriceWidget(usdPrice),
               _percentageChangeWidget(change24h),
+              _descriptionCardWidget(
+                data['description']['en'],
+              ),
             ],
           );
         } else {
@@ -119,6 +122,25 @@ class _HomePageState extends State<HomePage> {
         image: DecorationImage(
           image: NetworkImage(imageUrl),
         ),
+      ),
+    );
+  }
+
+  Widget _descriptionCardWidget(String description) {
+    return Container(
+      height: _deviceHeight * 0.45,
+      width: _deviceWidth * 0.9,
+      margin: EdgeInsets.symmetric(
+        vertical: _deviceHeight * 0.05,
+      ),
+      padding: EdgeInsets.symmetric(
+        vertical: _deviceHeight * 0.01,
+        horizontal: _deviceHeight * 0.01,
+      ),
+      color: const Color.fromRGBO(83, 88, 206, 0.5),
+      child: Text(
+        description,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
