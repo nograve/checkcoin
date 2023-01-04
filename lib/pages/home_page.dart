@@ -68,6 +68,9 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              _coinImageWidget(
+                data['image']['large'],
+              ),
               _currentPriceWidget(usdPrice),
               _percentageChangeWidget(change24h),
             ],
@@ -105,13 +108,20 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Implement _coinImageWidget
-
-  // Widget _coinImageWidget(String imageUrl) {
-  //   return Container(
-  //     height: ,
-  //   );
-  // }
+  Widget _coinImageWidget(String imageUrl) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        vertical: _deviceHeight * 0.02,
+      ),
+      height: _deviceHeight * 0.15,
+      width: _deviceWidth * 0.15,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
