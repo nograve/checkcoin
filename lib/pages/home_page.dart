@@ -60,12 +60,14 @@ class _HomePageState extends State<HomePage> {
             snapshot.data.toString(),
           );
           num usdPrice = data['market_data']['current_price']['usd'];
+          num change24h = data['market_data']['price_change_percentage_24h'];
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _currentPriceWidget(usdPrice),
+              _percentageChangeWidget(change24h),
             ],
           );
         } else {
@@ -85,10 +87,29 @@ class _HomePageState extends State<HomePage> {
       style: const TextStyle(
         color: Colors.white,
         fontSize: 30,
+        fontWeight: FontWeight.w400,
+      ),
+    );
+  }
+
+  Widget _percentageChangeWidget(num change) {
+    return Text(
+      '${change.toString()}%',
+      style: const TextStyle(
+        color: Colors.white,
+        fontSize: 15,
         fontWeight: FontWeight.w300,
       ),
     );
   }
+
+  // Implement _coinImageWidget
+
+  // Widget _coinImageWidget(String imageUrl) {
+  //   return Container(
+  //     height: ,
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
