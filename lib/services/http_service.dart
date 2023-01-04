@@ -13,4 +13,15 @@ class HTTPService {
     appConfig = GetIt.instance.get<AppConfig>();
     baseUrl = appConfig!.coinApiBaseUrl;
   }
+
+  Future<Response?> get(String path) async {
+    try {
+      // 'https://api.coingecko.com/api/v3/coins/bitcoin'
+      String url = '$baseUrl$path';
+      Response response = await dio.get(url);
+      return response;
+    } catch (e) {
+      return null;
+    }
+  }
 }

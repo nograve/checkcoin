@@ -11,6 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await loadConfig();
   registerHTTPService();
+  await GetIt.instance.get<HTTPService>().get('/coins/bitcoin');
   runApp(const CheckCoinApp());
 }
 
