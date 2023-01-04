@@ -60,8 +60,13 @@ class _HomePageState extends State<HomePage> {
             snapshot.data.toString(),
           );
           num usdPrice = data['market_data']['current_price']['usd'];
-          return Text(
-            usdPrice.toString(),
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _currentPriceWidget(usdPrice),
+            ],
           );
         } else {
           return const Center(
@@ -71,6 +76,17 @@ class _HomePageState extends State<HomePage> {
           );
         }
       },
+    );
+  }
+
+  Widget _currentPriceWidget(num rate) {
+    return Text(
+      '${rate.toStringAsFixed(2)} USD',
+      style: const TextStyle(
+        color: Colors.white,
+        fontSize: 30,
+        fontWeight: FontWeight.w300,
+      ),
     );
   }
 
