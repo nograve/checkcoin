@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:checkcoin/pages/details_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:checkcoin/services/http_service.dart';
@@ -68,8 +69,20 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _coinImageWidget(
-                data['image']['large'],
+              GestureDetector(
+                onDoubleTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const DetailsPage();
+                      },
+                    ),
+                  );
+                },
+                child: _coinImageWidget(
+                  data['image']['large'],
+                ),
               ),
               _currentPriceWidget(usdPrice),
               _percentageChangeWidget(change24h),
