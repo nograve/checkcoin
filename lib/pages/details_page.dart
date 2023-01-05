@@ -10,10 +10,6 @@ class DetailsPage extends StatelessWidget {
     super.key,
   });
 
-  // List<String> getPriceList(Map<dynamic, dynamic> prices) {
-
-  // }
-
   @override
   Widget build(BuildContext context) {
     List<CurrencyPrice> pricesList = List.empty(growable: true);

@@ -16,7 +16,6 @@ class HTTPService {
 
   Future<Response?> get(String path) async {
     try {
-      // 'https://api.coingecko.com/api/v3/coins/bitcoin'
       String url = '$baseUrl$path';
       Response response = await dio.get(url);
       return response;
