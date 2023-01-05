@@ -79,7 +79,8 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return const DetailsPage();
+                        return DetailsPage(
+                            prices: data['market_data']['current_price']);
                       },
                     ),
                   );
