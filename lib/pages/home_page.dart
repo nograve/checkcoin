@@ -13,15 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late HTTPService _http;
+  final _http = GetIt.instance.get<HTTPService>();
   late double _deviceHeight;
   late double _deviceWidth;
 
-  @override
-  void initState() {
-    super.initState();
-    _http = GetIt.instance.get<HTTPService>();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _http = GetIt.instance.get<HTTPService>();
+  // }
 
   Widget _selectedCoinDropdown() {
     List<String> coins = ['bitcoin'];
