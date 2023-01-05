@@ -18,6 +18,27 @@ class _HomePageState extends State<HomePage> {
   late double _deviceWidth;
   String? _selectedCoin;
 
+  @override
+  Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _selectedCoinDropdown(),
+              _dataWidgets(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _selectedCoinDropdown() {
     List<String> coins = [
       'bitcoin',
@@ -159,27 +180,6 @@ class _HomePageState extends State<HomePage> {
       child: Text(
         description,
         style: const TextStyle(color: Colors.white),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _deviceHeight = MediaQuery.of(context).size.height;
-    _deviceWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _selectedCoinDropdown(),
-              _dataWidgets(),
-            ],
-          ),
-        ),
       ),
     );
   }
