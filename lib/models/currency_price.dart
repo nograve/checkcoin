@@ -1,6 +1,9 @@
 class CurrencyPrice {
-  final String currency;
-  final num price;
+  final String _currency;
+  final num _price;
 
-  CurrencyPrice({required this.currency, required this.price});
+  CurrencyPrice(this._currency, this._price);
+
+  String get currency => _currency;
+  num get price => _price;
 }
