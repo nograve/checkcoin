@@ -13,8 +13,7 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CurrencyPrice> pricesList = List.empty(growable: true);
-    prices.forEach((key, value) =>
-        pricesList.add(CurrencyPrice(currency: key, price: value)));
+    prices.forEach((key, value) => pricesList.add(CurrencyPrice(key, value)));
     return Scaffold(
       body: ListView.builder(
         itemCount: pricesList.length,
