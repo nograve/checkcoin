@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:checkcoin/pages/home_page.dart';
+import 'pages/home_page.dart';
 
 class CheckCoinApp extends StatelessWidget {
   const CheckCoinApp({super.key});

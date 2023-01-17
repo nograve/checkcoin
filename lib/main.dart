@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'check_coin_app.dart';
-import 'package:checkcoin/models/app_config.dart';
-import 'package:checkcoin/services/http_service.dart';
+import 'models/app_config.dart';
+import 'services/http_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

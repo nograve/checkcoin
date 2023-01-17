@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:checkcoin/pages/details_page.dart';
+import 'details_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:checkcoin/services/http_service.dart';
+import '../services/http_service.dart';
 import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:checkcoin/models/currency_price.dart';
+import '../models/currency_price.dart';
 
 class DetailsPage extends StatelessWidget {
   final Map<dynamic, dynamic> prices;
