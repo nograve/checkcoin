@@ -1,1 +1,1 @@
-Application for quick checking crypto info
+Application for quick checking crypto info fetched from web
