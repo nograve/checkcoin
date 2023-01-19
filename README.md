@@ -1,1 +1,1 @@
-Application for quick checking coins info
+Application for quick checking crypto info
