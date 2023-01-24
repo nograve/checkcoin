@@ -4,15 +4,14 @@ import 'package:get_it/get_it.dart';
 import '../models/app_config.dart';
 
 class HTTPService {
-  final Dio _dio = Dio();
-
-  AppConfig? _appConfig;
-  String? _baseUrl;
-
   HTTPService() {
     _appConfig = GetIt.instance.get<AppConfig>();
     _baseUrl = _appConfig!.coinApiBaseUrl;
   }
+
+  final Dio _dio = Dio();
+  AppConfig? _appConfig;
+  String? _baseUrl;
 
   Future<Response?> get(String path) async {
     try {

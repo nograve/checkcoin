@@ -19,7 +19,7 @@ Future<void> loadConfig() async {
   String configContent = await rootBundle.loadString('assets/config/main.json');
   Map configData = jsonDecode(configContent);
   GetIt.instance.registerSingleton<AppConfig>(
-    AppConfig(configData['COIN_API_BASE_URL']),
+    AppConfig(coinApiBaseUrl: configData['COIN_API_BASE_URL']),
   );
 }
 
