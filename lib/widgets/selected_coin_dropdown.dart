@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../coins.dart';
+import '../cubit/selected_coin_cubit.dart';
 
 class SelectedCoinDropdown extends StatelessWidget {
-  const SelectedCoinDropdown({
-    super.key,
-    required this.selectedCoin,
-    required this.onCoinChanged,
-  });
-
-  final String? selectedCoin;
-  final void Function(Object?)? onCoinChanged;
+  const SelectedCoinDropdown({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<String> coins = [
-      'bitcoin',
-      'ethereum',
-      'tether',
-      'dogecoin',
-    ];
     final List<DropdownMenuItem<String>> items = coins
         .map(
           (e) => DropdownMenuItem(
@@ -33,17 +24,22 @@ class SelectedCoinDropdown extends StatelessWidget {
           ),
         )
         .toList();
-    return DropdownButton(
-      value: selectedCoin ?? (selectedCoin = coins.first),
-      items: items,
-      onChanged: onCoinChanged,
-      dropdownColor: const Color.fromRGBO(83, 88, 206, 1.0),
-      iconSize: 30,
-      icon: const Icon(
-        Icons.arrow_drop_down,
-        color: Colors.white,
-      ),
-      underline: Container(),
+    return BlocBuilder<SelectedCoinCubit, SelectedCoinState>(
+      builder: (context, state) {
+        return DropdownButton(
+          value: state.selectedCoin,
+          items: items,
+          onChanged: (value) =>
+              context.read<SelectedCoinCubit>().changeCoin(coin: value),
+          dropdownColor: const Color.fromRGBO(83, 88, 206, 1.0),
+          iconSize: 30,
+          icon: const Icon(
+            Icons.arrow_drop_down,
+            color: Colors.white,
+          ),
+          underline: Container(),
+        );
+      },
     );
   }
 }

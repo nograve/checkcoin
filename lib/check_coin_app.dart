@@ -1,5 +1,8 @@
+import 'cubit/selected_coin_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'coins.dart';
 import 'pages/home_page.dart';
 
 class CheckCoinApp extends StatelessWidget {
@@ -18,7 +21,10 @@ class CheckCoinApp extends StatelessWidget {
           1.0,
         ),
       ),
-      home: const HomePage(),
+      home: BlocProvider(
+        create: (_) => SelectedCoinCubit(selectedCoin: coins.first),
+        child: const HomePage(),
+      ),
     );
   }
 }
