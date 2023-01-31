@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:checkcoin/widgets/selected_coin_dropdown.dart';
+
 import 'details_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,52 +32,12 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _selectedCoinDropdown(),
+              SelectedCoinDropdown(),
               _dataWidgets(),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _selectedCoinDropdown() {
-    List<String> coins = [
-      'bitcoin',
-      'ethereum',
-      'tether',
-      'dogecoin',
-    ];
-    List<DropdownMenuItem<String>> items = coins
-        .map(
-          (e) => DropdownMenuItem(
-            value: e,
-            child: Text(
-              e,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 40,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        )
-        .toList();
-    return DropdownButton(
-      value: _selectedCoin ?? (_selectedCoin = coins.first),
-      items: items,
-      onChanged: (value) {
-        setState(() {
-          _selectedCoin = value.toString();
-        });
-      },
-      dropdownColor: const Color.fromRGBO(83, 88, 206, 1.0),
-      iconSize: 30,
-      icon: const Icon(
-        Icons.arrow_drop_down,
-        color: Colors.white,
-      ),
-      underline: Container(),
     );
   }
 
