@@ -1,8 +1,5 @@
 class AppConfig {
-  AppConfig({required String coinApiBaseUrl})
-      : _coinApiBaseUrl = coinApiBaseUrl;
+  AppConfig({required this.coinApiBaseUrl});
 
-  final String _coinApiBaseUrl;
-
-  String get coinApiBaseUrl => _coinApiBaseUrl;
+  final String coinApiBaseUrl;
 }
