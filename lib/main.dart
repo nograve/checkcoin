@@ -7,10 +7,10 @@ import 'check_coin_app.dart';
 import 'models/app_config.dart';
 import 'services/http_service.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await loadConfig();
-  registerHTTPService();
+  GetIt.instance.registerSingleton<HTTPService>(HTTPService());
   await GetIt.instance.get<HTTPService>().get('/coins/bitcoin');
   runApp(const CheckCoinApp());
 }
@@ -20,11 +20,5 @@ Future<void> loadConfig() async {
   Map configData = jsonDecode(configContent);
   GetIt.instance.registerSingleton<AppConfig>(
     AppConfig(coinApiBaseUrl: configData['COIN_API_BASE_URL']),
-  );
-}
-
-void registerHTTPService() {
-  GetIt.instance.registerSingleton<HTTPService>(
-    HTTPService(),
   );
 }
