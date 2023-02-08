@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
-
 import 'check_coin_app.dart';
 import 'models/app_config.dart';
 import 'services/http_service.dart';

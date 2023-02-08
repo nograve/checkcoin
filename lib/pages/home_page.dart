@@ -1,6 +1,5 @@
 import '../widgets/data_widgets.dart';
 import '../widgets/selected_coin_dropdown.dart';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

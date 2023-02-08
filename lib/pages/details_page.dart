@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/currency_price.dart';
 
 class DetailsPage extends StatelessWidget {
