@@ -31,8 +31,6 @@ class DataWidgets extends StatelessWidget {
                   data['market_data']['price_change_percentage_24h'];
               return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
                     onDoubleTap: () {
