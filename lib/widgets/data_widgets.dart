@@ -1,14 +1,16 @@
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+
+import '../cubit/selected_coin_cubit.dart';
+import '../services/http_service.dart';
+import '../views/details_view.dart';
 import 'coin_image_widget.dart';
 import 'current_price_widget.dart';
 import 'description_card_widget.dart';
 import 'percentage_change_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
-import '../cubit/selected_coin_cubit.dart';
-import '../views/details_view.dart';
-import '../services/http_service.dart';
 
 class DataWidgets extends StatelessWidget {
   DataWidgets({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../coins.dart';
 import '../cubit/selected_coin_cubit.dart';
 
