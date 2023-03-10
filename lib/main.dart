@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'coins.dart';
+
+import 'utils/coins.dart';
 import 'models/app_config.dart';
 import 'services/http_service.dart';
 
