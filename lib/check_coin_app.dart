@@ -2,7 +2,7 @@ import 'cubit/selected_coin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'coins.dart';
-import 'pages/home_page.dart';
+import 'views/home_page.dart';
 
 class CheckCoinApp extends StatelessWidget {
   const CheckCoinApp({super.key});

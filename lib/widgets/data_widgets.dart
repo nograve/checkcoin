@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../cubit/selected_coin_cubit.dart';
-import '../pages/details_page.dart';
+import '../views/details_page.dart';
 import '../services/http_service.dart';
 
 class DataWidgets extends StatelessWidget {
