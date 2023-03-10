@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/currency_price.dart';
 
-class DetailsPage extends StatelessWidget {
-  const DetailsPage({
+class DetailsView extends StatelessWidget {
+  const DetailsView({
     required this.prices,
     super.key,
   });
